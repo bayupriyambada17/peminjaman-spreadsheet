@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peminjaman Device</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+    body {
+      font-family: 'Space Mono', monospace;
+    }
+  </style>
+
+
+
+</head>
+
+<body class="bg-black">
+
+  <div class="container mx-auto my-4 max-w-xl">
+    <img src="https://res.cloudinary.com/dhyq9uts4/image/upload/v1706772266/olyuqo6nu8ghfvlwrkex.png" alt="image"
+      class="rounded mb-2 border-2 h-52">
+    <div class="mt-10">
+      <h1 class="text-center text-3xl font-bold text-white">Peminjaman Device</h1>
+      <p class="text-center text-lg text-gray-300">
+        Selamat datang di halaman peminjaman device
+      </p>
+      <form id="myForm">
+        <div class="mb-4">
+          <label for="nama" class="block text-gray-700 text-sm font-bold mb-2 text-white">Nama</label>
+          <input type="text" name="Nama" id="nama" required placeholder="Contoh: Nama Lengkap"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="kelas" class="block text-gray-700 text-sm font-bold mb-2 text-white">Kelas</label>
+          <select name="Kelas" id="kelas" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Kelas --</option>
+            <option value="X">X</option>
+            <option value="XI">XI</option>
+            <option value="XII">XII</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="mapel" class="block text-gray-700 text-sm font-bold mb-2 text-white">Mata Pelajaran</label>
+          <select name="Mapel" id="mapel" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Mata Pelajaran --</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+            <option value="Bahasa Inggris">Bahasa Inggris</option>
+            <option value="Matematika">Matematika</option>
+            <option value="Pendidikan Agama Islam">Pendidikan Agama Islam</option>
+            <option value="Informatika">Informatika</option>
+            <option value="Pemograman Dasar">Pemograman Dasar</option>
+            <option value="Back End Development">Back End Development</option>
+            <option value="Front End Development">Front End Development</option>
+            <option value="Dasar Desain Grafis">Dasar Desain Grafis</option>
+            <option value="Pendidikan Jasmani, Olahraga, dan Kesehatan">Pendidikan Jasmani, Olahraga, dan Kesehatan
+            </option>
+            <option value="Kesenian">Kesenian</option>
+            <option value="Sejarah">Sejarah</option>
+            <option value="Pancasila / Pendidikan Pancasila dan Kewarganegaraan">Pancasila / Pendidikan Pancasila dan
+              Kewarganegaraan</option>
+            <option value="Produk kreatif dan kewirausahaan">Produk kreatif dan kewirausahaan</option>
+            <option value="Komputer Jaringan Dasar">Komputer Jaringan Dasar</option>
+            <option value="Sistem Komputer">Sistem Komputer</option>
+            <option value="Management Startup">Management Startup</option>
+            <option value="Fisika">Fisika</option>
+            <option value="Kimia">Kimia</option>
+            <option value="Tahfidz">Tahfidz</option>
+            <option value="Tahsin">Tahsin</option>
+            <option value="Tajwid">Tajwid</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="guru" class="block text-gray-700 text-sm font-bold mb-2 text-white">Tenaga Pendidik
+            Pelajaran</label>
+          <select name="Tendik" id="guru" required
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Tenaga Pendidik Pelajaran --</option>
+            <option value="Ahmad Dahlan">Ahmad Dahlan</option>
+            <option value="Ulfa">Ulfa</option>
+            <option value="Mimah">Mimah</option>
+            <option value="Dzikri">Dzikri</option>
+            <option value="Bayu">Bayu</option>
+            <option value="Ibrahim">Ibrahim</option>
+            <option value="Muiz">Muiz</option>
+            <option value="Indra">Indra</option>
+            <option value="Palevi">Palevi</option>
+            <option value="Fajar">Fajar</option>
+            <option value="Ratno">Ratno</option>
+            <option value="Rifai">Rifai</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="alat" class="block text-gray-700 text-sm font-bold mb-2 text-white">Alat Yang Di pinjam</label>
+          <select name="Alat" id="alat" required onchange="changeLab(this.value)"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Peminjaman --</option>
+            <option id="LAB1" value="LAB1">LAB1</option>
+            <option id="LAB2" value="LAB2">LAB2</option>
+            <option id="LAPTOP" value="LAPTOP">LAPTOP</option>
+          </select>
+        </div>
+        <div class="mb-4" id="change-lab1" style="display: none;">
+          <label for="lab1" class="block text-gray-700 text-sm font-bold mb-2 text-white">Lab 1</label>
+          <select name="Lab1" id="lab1"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Lab 1 --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+        <div class="mb-4" id="change-lab2" style="display: none;">
+          <label for="lab2" class="block text-gray-700 text-sm font-bold mb-2 text-white">Lab 2</label>
+          <select name="Lab2" id="lab2"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Lab 2 --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+          </select>
+        </div>
+        <div class="mb-4" id="change-laptop" style="display: none;">
+          <label for="laptop" class="block text-gray-700 text-sm font-bold mb-2 text-white">Laptop</label>
+          <select name="Laptop" id="laptop"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">-- Pilih Laptop --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="time" class="block text-gray-700 text-sm font-bold mb-2 text-white">Waktu Pinjam (Hari
+            ini)</label>
+          <input type="time" name="Waktu" id="time" required placeholder="Ex: Jamaludin"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label for="time" class="block text-gray-700 text-sm font-bold mb-2 text-white">Alasan Meminjam</label>
+          <textarea name="Alasan" id="reason" cols="30" rows="10"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+
+        <div class="mt-4 flex flex-col gap-3">
+          <button type="button" onclick="submitForm()"
+            class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Buat Peminjaman
+          </button>
+          <a href="/index.html"
+            class="text-center w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Kembali
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>
