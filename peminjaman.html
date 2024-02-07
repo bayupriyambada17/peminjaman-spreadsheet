@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peminjaman Device</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
@@ -107,7 +108,7 @@
         </div>
         <div class="mb-4" id="change-lab1" style="display: none;">
           <label for="lab1" class="block text-gray-700 text-sm font-bold mb-2 text-white">Lab 1</label>
-          <select name="Lab1" id="lab1"
+          <select required name="Lab1" id="lab1"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Pilih Lab 1 --</option>
             <option value="1">1</option>
@@ -134,7 +135,7 @@
         </div>
         <div class="mb-4" id="change-lab2" style="display: none;">
           <label for="lab2" class="block text-gray-700 text-sm font-bold mb-2 text-white">Lab 2</label>
-          <select name="Lab2" id="lab2"
+          <select required name="Lab2" id="lab2"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Pilih Lab 2 --</option>
             <option value="1">1</option>
@@ -166,7 +167,7 @@
         </div>
         <div class="mb-4" id="change-laptop" style="display: none;">
           <label for="laptop" class="block text-gray-700 text-sm font-bold mb-2 text-white">Laptop</label>
-          <select name="Laptop" id="laptop"
+          <select required name="Laptop" id="laptop"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <option value="">-- Pilih Laptop --</option>
             <option value="1">1</option>
@@ -202,7 +203,7 @@
             class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Buat Peminjaman
           </button>
-          <a href="/"
+          <a href="./index.html"
             class="text-center w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Kembali
           </a>
@@ -213,5 +214,6 @@
 
 </body>
 <script src="js/script.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </html>

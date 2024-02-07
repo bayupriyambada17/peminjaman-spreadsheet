@@ -1,16 +1,46 @@
-function changeLab(selectedValue) {
-  // Hide all "Lab 1" dropdowns
+function changeLab(selectElement) {
+  // Hide all select dropdowns
   document.getElementById("change-lab1").style.display = "none";
   document.getElementById("change-lab2").style.display = "none";
   document.getElementById("change-laptop").style.display = "none";
 
-  // Show the selected "Lab 1" dropdown
-  document.getElementById("change-" + selectedValue.toLowerCase()).style.display = "block";
-}
+  // Show the selected select dropdown
+  var selectedValue = selectElement.toLowerCase();
+  document.getElementById("change-" + selectedValue).style.display = "block";
 
+  // Enable select inside the selected div
+  var selectedDiv = document.getElementById("change-" + selectedValue);
+  var selectInsideDiv = selectedDiv.querySelector("select");
+  selectInsideDiv.removeAttribute("disabled");
+}
 function submitForm() {
   // Assuming you have a form with id="myForm"
   var form = document.getElementById("myForm");
+
+  const inputan = form.querySelectorAll("input", "textarea", "select");
+  var isValid = true;
+  inputan.forEach((input) => {
+    if (input.value === "") {
+      isValid = false;
+      input.classList.add("error");
+    } else {
+      input.classList.remove("error");
+    }
+  })
+
+  if (!isValid) {
+    Toastify({
+      text: "Harap isi semua fields yang diperlukan",
+      className: "error",
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      stopOnFocus: true,
+      style: {
+        background: "linear-gradient(to right, #ff5f6d)",
+      }
+    }).showToast();
+    return;
+  }
 
   var formData = new FormData(form);
   var xhr = new XMLHttpRequest();
